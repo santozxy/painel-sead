@@ -210,13 +210,6 @@ export default function ListCards({
           {typeDescription}
         </h1>
       )}
-      {type && (
-        <div className="flex flex-col gap-4 justify-center items-center max-sm:flex-col mt-5">
-          <h1 className="text-xl text-center text-dark dark:text-light font-medium max-sm:text-sm">
-            {type}
-          </h1>
-        </div>
-      )}
       <div className="flex mt-5 justify-center items-center">
         <h1 className="text-lg border dark:border-gray-500 text-primary dark:text-light text-left font-medium max-sm:text-sm  rounded-md p-2">
           Duração:{" "}
