@@ -10,7 +10,7 @@ interface Props {
 
 const regex = /^(\d{5})?\.?(\d{6})?\/?(\d{0,4})?-?(\d{0,2})$/;
 export default function SearchBar({ setProcess, loading }: Props) {
-  const [search, setSearch] = useState<string>("00012.");
+  const [search, setSearch] = useState<string>("00117.");
   const [currentSearch, setCurrentSearch] = useState<string>("");
   const [isValueValid, setIsValueValid] = useState<boolean>(true);
   const [previousSearches, setPreviousSearches] = useState<string[]>([]);

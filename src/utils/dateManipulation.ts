@@ -30,8 +30,8 @@ export function CalculatorTimeDuration(start: string, end: string) {
   return { duration, limitDate };
 }
 
-export function ConvertSecondsDate(seconds: number) {
-  if (seconds === 0) {
+export function ConvertSecondsDate(seconds: number, start: string, end: string) {
+  if (!start && !end && seconds === 0) {
     return "O processo não entrou nesse grupo";
   }
   const days = Math.floor(seconds / (3600 * 24));

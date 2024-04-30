@@ -20,7 +20,6 @@ export default function Painel() {
   const [process, setProcess] = useState("");
   const [dataGrouped, setDataGrouped] = useState<Detail[]>([]);
   const [dataDetailed, setDataDetailed] = useState<Detail[]>([]);
-  const [dataFilterOthers, setDataFilterOthers] = useState<Detail[]>([]);
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["searchProcess", process],
     queryFn: () => searchProcess(process.replace(/[^\w\s]/g, "")),
@@ -44,16 +43,13 @@ export default function Painel() {
       const filteredGroup = dataGrouped.filter(
         (data) => data.group !== "OUTROS"
       );
-      const filteredOthers = dataGrouped.filter(
-        (data) => data.group === "OUTROS"
-      );
+
       setDataGrouped(filteredGroup);
-      setDataFilterOthers(filteredOthers);
+
       setDataDetailed(dataDetailed);
       return;
     } else {
       setDataGrouped([]);
-      setDataFilterOthers([]);
       setDataDetailed([]);
     }
   }, [data]);
@@ -81,13 +77,6 @@ export default function Painel() {
                 type="Tramitação Dentro do Fluxo"
                 typeDescription={data?.typeDescription}
                 duration={data?.mainDuration}
-              />
-            )}
-            {dataFilterOthers.length > 0 && (
-              <ListCards
-                data={dataFilterOthers}
-                type={"Tramitação Fora do Fluxo"}
-                duration={data?.othersDuration}
               />
             )}
             <ScrollPage />
